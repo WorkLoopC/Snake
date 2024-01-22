@@ -15,7 +15,6 @@ y=height/2;
 fruitX=rand() % width;
 fruitY=rand() % height;
 score=0;
-
 }
 
 void Draw(){  //Drawning the playground (Has a smaller shape so it fits into terminal in VS code)
@@ -25,7 +24,7 @@ for(int j=0;j<width;j++)
     std::cout<<'\n';
 for(int a=0;a<height;a++){
 for(int k=0;k<width;k++){
-    if(k==0)
+    if(k==0 || k==width-2)
         std::cout<<"|";   
     if(a==x && k==y)
         std::cout<<"O";
@@ -33,8 +32,6 @@ for(int k=0;k<width;k++){
         std::cout<<"X";
     else
         std::cout<<" ";
-    if(k==width-3)
-        std::cout<<"|"; 
 }
 std::cout<<'\n';  
 }              
@@ -85,7 +82,7 @@ if(y>width-3 || y<0 || x>height-1 || x<0){ //Setting up the coordinates that wil
     std::cout<<"***GAME OVER***"<<'\n';
     std::cout<<"Your score is:"<<score;
 }
-if(fruitX ==x && fruitY==y){ //Setup of the "fruit"
+if(fruitX==x && fruitY==y){ //Setup of the "fruit"
 score++;
 fruitX=rand() % height;
 fruitY=rand() % 7;
@@ -99,7 +96,6 @@ while (!gameOver){
     Logic();
     Sleep(120); //Modifying the speed of the snake
     }
-    return 0;
+return 0;
 }
 
-//takeouts-Watched a video before making this code for the inspiration and copied out the included libraries cuz they are new to me 
